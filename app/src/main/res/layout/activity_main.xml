@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.vaibhavmojidra.androidkotlindemo2roomdatabase.StudentViewModel" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="10dp"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/first_name_editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@={myViewModel.inputFirstName}"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:hint="Student's first name" />
+
+    <EditText
+        android:id="@+id/last_name_editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@={myViewModel.inputLastName}"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:hint="Student's last name" />
+
+    <EditText
+        android:id="@+id/class_editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:text="@={myViewModel.inputClass}"
+        android:hint="Class"
+        android:inputType="number"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/save_or_update_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="@{()->myViewModel.saveOrUpdate()}"
+            android:text="@={myViewModel.saveOrUpdateButtonText}" />
+
+        <Button
+            android:id="@+id/clear_all_or_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="@{()->myViewModel.clearOrDelete()}"
+            android:text="@={myViewModel.clearOrDeleteButtonText}" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/students_recycler_view"
+        android:layout_marginVertical="10dp"/>
+
+
+</LinearLayout>
+
+</layout>
